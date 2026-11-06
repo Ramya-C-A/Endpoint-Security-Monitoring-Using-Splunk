@@ -1,0 +1,2 @@
+index=av sourcetype=csv
+| table Name OS "Health Status" Protection Encryption "Tamper protection" "Last active"

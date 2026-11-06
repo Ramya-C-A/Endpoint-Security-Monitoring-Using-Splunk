@@ -1,0 +1,3 @@
+index=av sourcetype=csv
+| eval Encryption_Status=if(isnull(Encryption) OR Encryption="", "Not Reported", Encryption)
+| stats count by Encryption_Status

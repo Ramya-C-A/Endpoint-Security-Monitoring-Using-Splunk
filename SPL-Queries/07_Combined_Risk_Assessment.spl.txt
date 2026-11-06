@@ -1,0 +1,5 @@
+index=av sourcetype=csv
+| eval Tamper_Status=if('Tamper protection'="Off","Disabled","Enabled")
+| eval Encryption_Status=if(isnull(Encryption) OR Encryption="","Not Reported",Encryption)
+| eval Risk_Flag=if('Health Status'="Critical" OR Tamper_Status="Disabled" OR Encryption_Status="Not Reported","Review Required","No Listed Issue")
+| table Name OS "Health Status" Tamper_Status Encryption_Status Risk_Flag

@@ -1,0 +1,2 @@
+index=av sourcetype=csv
+| stats count by "Tamper protection"

@@ -1,0 +1,3 @@
+index=av sourcetype=csv
+| table Name "Health Status" "Last active"
+| sort "Last active"

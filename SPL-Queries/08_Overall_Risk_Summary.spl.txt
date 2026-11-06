@@ -1,0 +1,5 @@
+index=av sourcetype=csv
+| eval Tamper_Status=case('Tamper protection'="Off","Disabled",'Tamper protection'="On","Enabled",true(),"Not Reported")
+| eval Encryption_Status=if(isnull(Encryption) OR Encryption="","Not Reported",Encryption)
+| eval Risk_Flag=if('Health Status'="Critical" OR Tamper_Status="Disabled" OR Encryption_Status="Not Reported","Review Required","No Listed Issue")
+| stats count by Risk_Flag
